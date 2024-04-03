@@ -16,34 +16,26 @@ public class ToDoService {
 	public List<ToDo>getAllToDoItems(){
 		ArrayList<ToDo> todoList = new ArrayList<>();
 		repo.findAll().forEach(todo -> todoList.add(todo));
-		
 		return todoList;
-		
 	}
 	
 	public ToDo getToDoItemById(Long id){
     	return repo.findById(id).get();
-		
 	}
     
 	public boolean updateStatus(Long id){
 		ToDo todo = getToDoItemById(id);
 		todo.setStatus("Completed");
-		
 		return saveOrUpdateToDoItem(todo);
-	
-    	
     }
     
 	public boolean saveOrUpdateToDoItem(ToDo todo){
-ToDo updatedObj = repo.save(todo);
+        ToDo updatedObj = repo.save(todo);
 		
 		if (getToDoItemById(updatedObj.getId()) != null) {
 			return true;
 		}
-		
 		return false;
-    	
     }
     
 	public boolean deleteToDoItem(Long id){
@@ -53,9 +45,7 @@ ToDo updatedObj = repo.save(todo);
 			return true;
 		}
 		
-		return false;
-	
-    	
+		return false;	
     }
 
 }

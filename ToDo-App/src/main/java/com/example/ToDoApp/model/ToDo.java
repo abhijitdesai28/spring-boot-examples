@@ -60,6 +60,4 @@ public class ToDo {
 		this.status = status;
 	}
 	
-	
-
 }
